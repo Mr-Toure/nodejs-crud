@@ -1,0 +1,49 @@
+<nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">New User</li>
+      </ol>
+</nav>
+{{#if alert}}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>{{alert}}</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/if}}
+
+<form action="/adduser" method="POST" class="row g-3 needs-validation" novalidate>
+      <div class="col-6">
+            <div class="form-floating mb-3">
+                  <input type="text" name="first_name" class="form-control" id="floatingInput">
+                  <label for="floatingInput">Fisrt Name</label>
+            </div>
+      </div>
+      <div class="col-6">
+            <div class="form-floating mb-3">
+                  <input type="text" name="last_name" class="form-control" id="floatingInput">
+                  <label for="floatingInput">Last Name</label>
+            </div>
+      </div>
+      <div class="col-6">
+            <div class="form-floating mb-3">
+                  <input type="text" name="email" class="form-control" id="floatingInput">
+                  <label for="floatingInput">Email</label>
+            </div>
+      </div>
+      <div class="col-6">
+            <div class="form-floating mb-3">
+                  <input type="text" name="phone" class="form-control" id="floatingInput">
+                  <label for="floatingInput">Phone</label>
+            </div>
+      </div>
+      <div class="col-12">
+            <div class="form-floating mb-3">
+                  <input type="text" name="comments" class="form-control" id="floatingInput" style="height: 200px;">
+                  <label for="floatingInput">Comments</label>
+            </div>
+      </div>
+
+      <div class="col-12 d-grid">
+            <button class="btn btn-primary" type="submit">submit</button>
+      </div>
+</form>
