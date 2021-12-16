@@ -1,7 +1,7 @@
 <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">New User</li>
+            <li class="breadcrumb-item active" aria-current="page">Edit User</li>
       </ol>
 </nav>
 {{#if alert}}
@@ -11,34 +11,36 @@
 </div>
 {{/if}}
 
-<form action="/adduser" method="POST" class="row g-3 needs-validation" novalidate>
+{{#each rows}}
+<form action="/edituser/{{ this.id }}" method="POST" class="row g-3 needs-validation" novalidate>
+
       <div class="col-6">
             <div class="form-floating mb-3">
-                  <input type="text" name="first_name" class="form-control" id="floatingInput">
+                  <input type="text" name="first_name" class="form-control" id="floatingInput" value="{{ this.first_name }}">
                   <label for="floatingInput">Fisrt Name</label>
             </div>
       </div>
       <div class="col-6">
             <div class="form-floating mb-3">
-                  <input type="text" name="last_name" class="form-control" id="floatingInput">
+                  <input type="text" name="last_name" value="{{ this.last_name }}" class="form-control" id="floatingInput">
                   <label for="floatingInput">Last Name</label>
             </div>
       </div>
       <div class="col-6">
             <div class="form-floating mb-3">
-                  <input type="text" name="email" class="form-control" id="floatingInput">
+                  <input type="text" name="email" class="form-control" value="{{ this.email }}" id="floatingInput">
                   <label for="floatingInput">Email</label>
             </div>
       </div>
       <div class="col-6">
             <div class="form-floating mb-3">
-                  <input type="text" name="phone" class="form-control" id="floatingInput">
+                  <input type="text" name="phone" value="{{ this.phone }}" class="form-control" id="floatingInput">
                   <label for="floatingInput">Phone</label>
             </div>
       </div>
       <div class="col-12">
             <div class="form-floating mb-3">
-                  <textarea type="text" name="comments" class="form-control" id="floatingInput" style="height: 200px;"></textarea>
+                  <textarea type="text" name="comments" class="form-control" id="floatingInput" style="height: 200px;">{{ this.comment }}</textarea>
                   <label for="floatingInput">Comments</label>
             </div>
       </div>
@@ -46,4 +48,6 @@
       <div class="col-12 d-grid">
             <button class="btn btn-primary" type="submit">submit</button>
       </div>
+
 </form>
+{{/each}}
